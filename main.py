@@ -47,7 +47,17 @@ def init_seeds(seed, cuda_deterministic=True):
     # Speed-reproducibility tradeoff https://pytorch.org/docs/stable/notes/randomness.html
     if cuda_deterministic:  # slower, more reproducible
         cudnn.deterministic = True
+        '''
+        While disabling CUDA convolution benchmarking ensures that CUDA 
+        selects the same algorithm each time an application is run, 
+        that algorithm itself may be nondeterministic, 
+        unless above is set.
+        '''
         cudnn.benchmark = False
+        '''
+        Disabling the benchmarking feature causes cuDNN to deterministically select an algorithm, 
+        possibly at the cost of reduced performance.
+        '''
     else:  # faster, less reproducible
         cudnn.deterministic = False
         cudnn.benchmark = True
