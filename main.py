@@ -13,6 +13,7 @@ import argparse
 
 from models import *
 from utils import progress_bar
+import csv
 
 
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
@@ -55,7 +56,7 @@ classes = ('plane', 'car', 'bird', 'cat', 'deer',
 # Model
 print('==> Building model..')
 # net = VGG('VGG19')
-# net = ResNet18()
+net = ResNet18()
 # net = PreActResNet18()
 # net = GoogLeNet()
 # net = DenseNet121()
@@ -68,7 +69,7 @@ print('==> Building model..')
 # net = ShuffleNetV2(1)
 # net = EfficientNetB0()
 # net = RegNetX_200MF()
-net = SimpleDLA()
+# net = SimpleDLA()
 net = net.to(device)
 if device == 'cuda':
     net = torch.nn.DataParallel(net)
@@ -96,10 +97,25 @@ def train(epoch):
     train_loss = 0
     correct = 0
     total = 0
+    memory_allocated_list, memory_reserved_list, memory_inactive_list = [], [], []
+    # print(torch.cuda.memory_stats()["allocated_bytes.all.current"]/1024/1024)
+    # print(torch.cuda.memory_stats()["reserved_bytes.all.current"]/1024/1024)
+    # print(torch.cuda.memory_stats()["inactive_split_bytes.all.current"]/1024/1024)
+    memory_allocated_list.append(torch.cuda.memory_stats()["allocated_bytes.all.current"]/1024/1024)
+    memory_reserved_list.append(torch.cuda.memory_stats()["reserved_bytes.all.current"]/1024/1024)
+    memory_inactive_list.append(torch.cuda.memory_stats()["inactive_split_bytes.all.current"]/1024/1024)
     for batch_idx, (inputs, targets) in enumerate(trainloader):
+        if batch_idx % 10 == 0:
+            memory_allocated_list.append(torch.cuda.memory_stats()["allocated_bytes.all.current"] / 1024 / 1024)
+            memory_reserved_list.append(torch.cuda.memory_stats()["reserved_bytes.all.current"] / 1024 / 1024)
+            memory_inactive_list.append(torch.cuda.memory_stats()["inactive_split_bytes.all.current"] / 1024 / 1024)
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
         outputs = net(inputs)
+        if batch_idx % 10 == 0:
+            memory_allocated_list.append(torch.cuda.memory_stats()["allocated_bytes.all.current"] / 1024 / 1024)
+            memory_reserved_list.append(torch.cuda.memory_stats()["reserved_bytes.all.current"] / 1024 / 1024)
+            memory_inactive_list.append(torch.cuda.memory_stats()["inactive_split_bytes.all.current"] / 1024 / 1024)
         loss = criterion(outputs, targets)
         loss.backward()
         optimizer.step()
@@ -111,7 +127,11 @@ def train(epoch):
 
         progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
                      % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
-
+    with open('test.csv', 'w') as f:
+        write = csv.writer(f)
+        write.writerow(memory_allocated_list)
+        write.writerow(memory_reserved_list)
+        write.writerow(memory_inactive_list)
 
 def test(epoch):
     global best_acc
@@ -148,7 +168,7 @@ def test(epoch):
         best_acc = acc
 
 
-for epoch in range(start_epoch, start_epoch+200):
+for epoch in range(start_epoch, start_epoch+1):
     train(epoch)
     test(epoch)
     scheduler.step()
