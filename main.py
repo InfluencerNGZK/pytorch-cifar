@@ -1,4 +1,6 @@
 '''Train CIFAR10 with PyTorch.'''
+import collections
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -14,7 +16,6 @@ import argparse
 from models import *
 from utils import progress_bar
 import csv
-
 
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
 parser.add_argument('--lr', default=0.1, type=float, help='learning rate')
@@ -48,7 +49,7 @@ trainloader = torch.utils.data.DataLoader(
 testset = torchvision.datasets.CIFAR10(
     root='./data', train=False, download=True, transform=transform_test)
 testloader = torch.utils.data.DataLoader(
-    testset, batch_size=100, shuffle=False, num_workers=2)
+    testset, batch_size=256, shuffle=False, num_workers=2)
 
 classes = ('plane', 'car', 'bird', 'cat', 'deer',
            'dog', 'frog', 'horse', 'ship', 'truck')
@@ -101,14 +102,16 @@ def train(epoch):
     # print(torch.cuda.memory_stats()["allocated_bytes.all.current"]/1024/1024)
     # print(torch.cuda.memory_stats()["reserved_bytes.all.current"]/1024/1024)
     # print(torch.cuda.memory_stats()["inactive_split_bytes.all.current"]/1024/1024)
-    memory_allocated_list.append(torch.cuda.memory_stats()["allocated_bytes.all.current"]/1024/1024)
-    memory_reserved_list.append(torch.cuda.memory_stats()["reserved_bytes.all.current"]/1024/1024)
-    memory_inactive_list.append(torch.cuda.memory_stats()["inactive_split_bytes.all.current"]/1024/1024)
+    memory_allocated_list.append(torch.cuda.memory_stats()["allocated_bytes.all.current"] / 1024 / 1024)
+    memory_reserved_list.append(torch.cuda.memory_stats()["reserved_bytes.all.current"] / 1024 / 1024)
+    memory_inactive_list.append(torch.cuda.memory_stats()["inactive_split_bytes.all.current"] / 1024 / 1024)
+    check_memory_stat_consistency()
     for batch_idx, (inputs, targets) in enumerate(trainloader):
         if batch_idx % 10 == 0:
             memory_allocated_list.append(torch.cuda.memory_stats()["allocated_bytes.all.current"] / 1024 / 1024)
             memory_reserved_list.append(torch.cuda.memory_stats()["reserved_bytes.all.current"] / 1024 / 1024)
             memory_inactive_list.append(torch.cuda.memory_stats()["inactive_split_bytes.all.current"] / 1024 / 1024)
+            check_memory_stat_consistency()
         inputs, targets = inputs.to(device), targets.to(device)
         optimizer.zero_grad()
         outputs = net(inputs)
@@ -116,6 +119,7 @@ def train(epoch):
             memory_allocated_list.append(torch.cuda.memory_stats()["allocated_bytes.all.current"] / 1024 / 1024)
             memory_reserved_list.append(torch.cuda.memory_stats()["reserved_bytes.all.current"] / 1024 / 1024)
             memory_inactive_list.append(torch.cuda.memory_stats()["inactive_split_bytes.all.current"] / 1024 / 1024)
+            check_memory_stat_consistency()
         loss = criterion(outputs, targets)
         loss.backward()
         optimizer.step()
@@ -126,12 +130,13 @@ def train(epoch):
         correct += predicted.eq(targets).sum().item()
 
         progress_bar(batch_idx, len(trainloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                     % (train_loss/(batch_idx+1), 100.*correct/total, correct, total))
+                     % (train_loss / (batch_idx + 1), 100. * correct / total, correct, total))
     with open('test.csv', 'w') as f:
         write = csv.writer(f)
         write.writerow(memory_allocated_list)
         write.writerow(memory_reserved_list)
         write.writerow(memory_inactive_list)
+
 
 def test(epoch):
     global best_acc
@@ -151,10 +156,10 @@ def test(epoch):
             correct += predicted.eq(targets).sum().item()
 
             progress_bar(batch_idx, len(testloader), 'Loss: %.3f | Acc: %.3f%% (%d/%d)'
-                         % (test_loss/(batch_idx+1), 100.*correct/total, correct, total))
+                         % (test_loss / (batch_idx + 1), 100. * correct / total, correct, total))
 
     # Save checkpoint.
-    acc = 100.*correct/total
+    acc = 100. * correct / total
     if acc > best_acc:
         print('Saving..')
         state = {
@@ -168,7 +173,57 @@ def test(epoch):
         best_acc = acc
 
 
-for epoch in range(start_epoch, start_epoch+1):
+def check_memory_stat_consistency():
+    snapshot = torch.cuda.memory_snapshot()
+
+    expected_each_device = collections.defaultdict(lambda: collections.defaultdict(int))
+
+    # for segment in snapshot:
+    for idx, segment in enumerate(snapshot):
+        expected = expected_each_device[segment["device"]]
+        pool_str = segment["segment_type"] + "_pool"
+
+        # expected["segment.all.current"] += 1
+        # expected["segment." + pool_str + ".current"] += 1
+
+        # expected["allocated_bytes.all.current"] += segment["allocated_size"]
+        # expected["allocated_bytes." + pool_str + ".current"] += segment["allocated_size"]
+
+        expected["reserved_bytes.all.current"] += segment["total_size"]
+        expected["reserved_bytes." + pool_str + ".current"] += segment["total_size"]
+
+        expected["active_bytes.all.current"] += segment["active_size"]
+        expected["active_bytes." + pool_str + ".current"] += segment["active_size"]
+
+        is_split = len(segment["blocks"]) > 1
+        real = 0.0
+        for block in segment["blocks"]:
+            # if block["state"] == "active_allocated":
+            #     expected["allocation.all.current"] += 1
+            #     expected["allocation." + pool_str + ".current"] += 1
+            # if idx == 7 or idx == 8:
+            # print("The block size is:", block["size"] / 1024 / 1024, "MB", ", the block state is:", block["state"])
+
+            if block["state"].startswith("active_"):
+                expected["active.all.current"] += 1
+                expected["active." + pool_str + ".current"] += 1
+
+            if block["state"] == "inactive" and is_split:
+                expected["inactive_split.all.current"] += 1
+                expected["inactive_split." + pool_str + ".current"] += 1
+                expected["inactive_split_bytes.all.current"] += block["size"]
+                expected["inactive_split_bytes." + pool_str + ".current"] += block["size"]
+                real += block["size"]
+        # print("Segment Index:", idx, ", Inactivate split rate: ",
+        #       round((real / segment["total_size"] * 100), 2),
+        #       "%,   Total Size:",
+        #       segment["total_size"] / 1024 / 1024, "MB",
+        #       ",   Inactive Size:",
+        #       round(real / 1024 / 1024, 2), "MB")
+    # print()
+
+
+for epoch in range(start_epoch, start_epoch + 1):
     train(epoch)
     test(epoch)
     scheduler.step()

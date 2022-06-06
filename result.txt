@@ -1,0 +1,174 @@
+Segment Index: 0 , Inactivate split rate:  0.0 %,   Total Size: 76.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 1 , Inactivate split rate:  0.0 %,   Total Size: 54.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 2 , Inactivate split rate:  0.0 %,   Total Size: 46.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 3 , Inactivate split rate:  0.0 %,   Total Size: 46.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 4 , Inactivate split rate:  2.88 %,   Total Size: 2.0 MB ,   Inactive Size: 0.06 MB
+Segment Index: 5 , Inactivate split rate:  22.66 %,   Total Size: 2.0 MB ,   Inactive Size: 0.45 MB
+Segment Index: 6 , Inactivate split rate:  28.54 %,   Total Size: 2.0 MB ,   Inactive Size: 0.57 MB
+Segment Index: 7 , Inactivate split rate:  46.88 %,   Total Size: 2.0 MB ,   Inactive Size: 0.94 MB
+Segment Index: 8 , Inactivate split rate:  27.08 %,   Total Size: 54.0 MB ,   Inactive Size: 14.62 MB
+Segment Index: 9 , Inactivate split rate:  39.13 %,   Total Size: 46.0 MB ,   Inactive Size: 18.0 MB
+Segment Index: 10 , Inactivate split rate:  0.0 %,   Total Size: 76.0 MB ,   Inactive Size: 0.0 MB
+The block size is: 392.0 MB , the block state is: inactive
+The block size is: 4.5 MB , the block state is: active_allocated
+The block size is: 1.5 MB , the block state is: active_allocated
+Segment Index: 11 , Inactivate split rate:  98.49 %,   Total Size: 398.0 MB ,   Inactive Size: 392.0 MB
+Segment Index: 12 , Inactivate split rate:  0.0 %,   Total Size: 266.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 13 , Inactivate split rate:  40.0 %,   Total Size: 20.0 MB ,   Inactive Size: 8.0 MB
+Segment Index: 14 , Inactivate split rate:  10.0 %,   Total Size: 20.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 15 , Inactivate split rate:  0.49 %,   Total Size: 2.0 MB ,   Inactive Size: 0.01 MB
+Segment Index: 16 , Inactivate split rate:  7.76 %,   Total Size: 2.0 MB ,   Inactive Size: 0.16 MB
+Segment Index: 17 , Inactivate split rate:  15.62 %,   Total Size: 20.0 MB ,   Inactive Size: 3.12 MB
+
+Segment Index: 0 , Inactivate split rate:  0.0 %,   Total Size: 76.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 1 , Inactivate split rate:  3.7 %,   Total Size: 54.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 2 , Inactivate split rate:  4.35 %,   Total Size: 46.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 3 , Inactivate split rate:  4.35 %,   Total Size: 46.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 4 , Inactivate split rate:  3.12 %,   Total Size: 2.0 MB ,   Inactive Size: 0.06 MB
+Segment Index: 5 , Inactivate split rate:  10.16 %,   Total Size: 2.0 MB ,   Inactive Size: 0.2 MB
+Segment Index: 6 , Inactivate split rate:  28.15 %,   Total Size: 2.0 MB ,   Inactive Size: 0.56 MB
+Segment Index: 7 , Inactivate split rate:  46.88 %,   Total Size: 2.0 MB ,   Inactive Size: 0.94 MB
+Segment Index: 8 , Inactivate split rate:  7.18 %,   Total Size: 54.0 MB ,   Inactive Size: 3.88 MB
+Segment Index: 9 , Inactivate split rate:  4.35 %,   Total Size: 46.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 10 , Inactivate split rate:  0.0 %,   Total Size: 76.0 MB ,   Inactive Size: 0.0 MB
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 136.0 MB , the block state is: inactive
+The block size is: 4.5 MB , the block state is: active_allocated
+The block size is: 1.5 MB , the block state is: active_allocated
+Segment Index: 11 , Inactivate split rate:  34.17 %,   Total Size: 398.0 MB ,   Inactive Size: 136.0 MB
+Segment Index: 12 , Inactivate split rate:  0.75 %,   Total Size: 266.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 13 , Inactivate split rate:  0.0 %,   Total Size: 20.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 14 , Inactivate split rate:  10.0 %,   Total Size: 20.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 15 , Inactivate split rate:  0.05 %,   Total Size: 2.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 16 , Inactivate split rate:  6.35 %,   Total Size: 2.0 MB ,   Inactive Size: 0.13 MB
+Segment Index: 17 , Inactivate split rate:  15.62 %,   Total Size: 20.0 MB ,   Inactive Size: 3.12 MB
+
+------------------------------------------------------------------------------------------------------------------------
+
+The block size is: 264.0 MB , the block state is: inactive
+The block size is: 0.00537109375 MB , the block state is: active_allocated
+The block size is: 0.00048828125 MB , the block state is: active_allocated
+The block size is: 0.0048828125 MB , the block state is: active_allocated
+The block size is: 0.2548828125 MB , the block state is: active_allocated
+The block size is: 0.01953125 MB , the block state is: active_allocated
+The block size is: 0.001953125 MB , the block state is: active_allocated
+The block size is: 0.5 MB , the block state is: active_allocated
+The block size is: 0.001953125 MB , the block state is: active_allocated
+The block size is: 0.001953125 MB , the block state is: active_allocated
+The block size is: 0.0009765625 MB , the block state is: active_allocated
+The block size is: 0.0009765625 MB , the block state is: active_allocated
+The block size is: 0.0009765625 MB , the block state is: active_allocated
+The block size is: 0.125 MB , the block state is: active_allocated
+The block size is: 0.0009765625 MB , the block state is: active_allocated
+The block size is: 0.0009765625 MB , the block state is: active_allocated
+The block size is: 0.00048828125 MB , the block state is: active_allocated
+The block size is: 1.07861328125 MB , the block state is: active_allocated
+Segment Index: 0 , Inactivate split rate:  99.25 %,   Total Size: 266.0 MB ,   Inactive Size: 264.0 MB
+The block size is: 398.0 MB , the block state is: inactive
+Segment Index: 1 , Inactivate split rate:  0.0 %,   Total Size: 398.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 2 , Inactivate split rate:  99.99 %,   Total Size: 46.0 MB ,   Inactive Size: 46.0 MB
+Segment Index: 3 , Inactivate split rate:  32.77 %,   Total Size: 46.0 MB ,   Inactive Size: 15.07 MB
+Segment Index: 4 , Inactivate split rate:  19.44 %,   Total Size: 54.0 MB ,   Inactive Size: 10.5 MB
+Segment Index: 5 , Inactivate split rate:  0.0 %,   Total Size: 76.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 6 , Inactivate split rate:  0.0 %,   Total Size: 76.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 7 , Inactivate split rate:  0.0 %,   Total Size: 54.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 8 , Inactivate split rate:  0.0 %,   Total Size: 2.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 9 , Inactivate split rate:  0.0 %,   Total Size: 2.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 10 , Inactivate split rate:  0.0 %,   Total Size: 2.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 11 , Inactivate split rate:  50.44 %,   Total Size: 2.0 MB ,   Inactive Size: 1.01 MB
+Segment Index: 12 , Inactivate split rate:  21.25 %,   Total Size: 20.0 MB ,   Inactive Size: 4.25 MB
+Segment Index: 13 , Inactivate split rate:  10.0 %,   Total Size: 20.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 14 , Inactivate split rate:  6.13 %,   Total Size: 20.0 MB ,   Inactive Size: 1.23 MB
+
+The block size is: 32.0 MB , the block state is: active_allocated
+The block size is: 32.0 MB , the block state is: active_allocated
+The block size is: 32.0 MB , the block state is: active_allocated
+The block size is: 32.0 MB , the block state is: active_allocated
+The block size is: 32.0 MB , the block state is: active_allocated
+The block size is: 32.0 MB , the block state is: active_allocated
+The block size is: 32.0 MB , the block state is: active_allocated
+The block size is: 32.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 0.00537109375 MB , the block state is: active_allocated
+The block size is: 0.00048828125 MB , the block state is: active_allocated
+The block size is: 0.0048828125 MB , the block state is: active_allocated
+The block size is: 0.2548828125 MB , the block state is: active_allocated
+The block size is: 0.01953125 MB , the block state is: active_allocated
+The block size is: 0.001953125 MB , the block state is: active_allocated
+The block size is: 0.5 MB , the block state is: active_allocated
+The block size is: 0.001953125 MB , the block state is: active_allocated
+The block size is: 0.001953125 MB , the block state is: active_allocated
+The block size is: 0.0009765625 MB , the block state is: active_allocated
+The block size is: 0.0009765625 MB , the block state is: active_allocated
+The block size is: 0.0009765625 MB , the block state is: active_allocated
+The block size is: 0.125 MB , the block state is: active_allocated
+The block size is: 0.0009765625 MB , the block state is: active_allocated
+The block size is: 0.0009765625 MB , the block state is: active_allocated
+The block size is: 0.00048828125 MB , the block state is: active_allocated
+The block size is: 1.07861328125 MB , the block state is: active_allocated
+Segment Index: 0 , Inactivate split rate:  0.0 %,   Total Size: 266.0 MB ,   Inactive Size: 0.0 MB
+The block size is: 32.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 16.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 8.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 4.0 MB , the block state is: active_allocated
+The block size is: 90.0 MB , the block state is: inactive
+Segment Index: 1 , Inactivate split rate:  22.61 %,   Total Size: 398.0 MB ,   Inactive Size: 90.0 MB
+Segment Index: 2 , Inactivate split rate:  0.01 %,   Total Size: 46.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 3 , Inactivate split rate:  4.35 %,   Total Size: 46.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 4 , Inactivate split rate:  3.7 %,   Total Size: 54.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 5 , Inactivate split rate:  0.0 %,   Total Size: 76.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 6 , Inactivate split rate:  0.0 %,   Total Size: 76.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 7 , Inactivate split rate:  3.7 %,   Total Size: 54.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 8 , Inactivate split rate:  0.0 %,   Total Size: 2.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 9 , Inactivate split rate:  0.0 %,   Total Size: 2.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 10 , Inactivate split rate:  0.0 %,   Total Size: 2.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 11 , Inactivate split rate:  0.0 %,   Total Size: 2.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 12 , Inactivate split rate:  0.0 %,   Total Size: 20.0 MB ,   Inactive Size: 0.0 MB
+Segment Index: 13 , Inactivate split rate:  10.0 %,   Total Size: 20.0 MB ,   Inactive Size: 2.0 MB
+Segment Index: 14 , Inactivate split rate:  7.41 %,   Total Size: 20.0 MB ,   Inactive Size: 1.48 MB
